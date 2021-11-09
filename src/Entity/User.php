@@ -54,12 +54,19 @@ class User
      * @ORM\OneToMany(targetEntity=Project::class, mappedBy="managerId")
      */
     private $projects;
+    
 
     public function __construct()
     {
         $this->tasks = new ArrayCollection();
         $this->projects = new ArrayCollection();
     }
+
+    public function __toString(): string
+    {
+        return $this->id;
+    }
+
 
     public function getId(): ?int
     {
